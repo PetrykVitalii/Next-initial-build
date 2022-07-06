@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-import { OnChange } from '@/interfaces/input';
+export type ChangeEvent =
+  | React.ChangeEvent<HTMLInputElement>
+  | React.ChangeEvent<HTMLTextAreaElement>;
+
+export type OnChange = (event: ChangeEvent | string) => void;
 
 export default (defaultValue = ''): [string, OnChange] => {
   const [value, setValue] = useState<string>(defaultValue);

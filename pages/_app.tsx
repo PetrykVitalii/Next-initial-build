@@ -3,8 +3,6 @@ import { Provider } from 'react-redux';
 
 import store from '@/store';
 
-import '@/styles/globals.css';
-
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => (
   <Provider store={store}>
     <Component {...pageProps} />
