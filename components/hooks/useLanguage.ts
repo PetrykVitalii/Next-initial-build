@@ -8,9 +8,9 @@ import Common from '@/utils/language/Common';
 export default () => {
   const ln = useSelector(selectLn);
 
-  const common = useMemo(() => new Common(ln), [ln]);
+  const commonLn = useMemo(() => new Common(ln), [ln]);
 
   return [{
-    common,
+    commonLn,
   }];
 };
