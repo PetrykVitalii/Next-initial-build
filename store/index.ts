@@ -4,7 +4,10 @@ import {
 import thunk from 'redux-thunk';
 
 import { LanguageActions } from '@/store/actions/language';
+import { FilmsActions } from '@/store/actions/films';
+
 import languageReducer from '@/store/reducers/language';
+import filmsReducer from '@/store/reducers/films';
 
 import MainApi from '@/api/main';
 import MainProtected from '@/api/main-protected';
@@ -12,6 +15,7 @@ import S3Api from '@/api/s3';
 
 const rootReducer = combineReducers({
   languageReducer,
+  filmsReducer,
 });
 
 const composeEnhancers = typeof window === 'undefined' ? compose : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__!;
@@ -34,6 +38,7 @@ const enhancer = composeEnhancers(
 
 export type State = ReturnType<typeof rootReducer>;
 export type Actions =
+  | FilmsActions
   | LanguageActions;
 
 export const store = createStore(rootReducer, enhancer);
