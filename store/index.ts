@@ -4,16 +4,11 @@ import {
 import thunk from 'redux-thunk';
 
 import { LanguageActions } from '@/store/actions/language';
-
 import languageReducer from '@/store/reducers/language';
 
-// import MainApi from '@/api/main';
-// import MainProtected from '@/api/main-protected';
-// import MainCustomApi from '@/api/main-custom';
-// import AnalyticsProtected from '@/api/analytics-protected';
-// import AccountsServiceProtected from '@/api/accounts-service-protected';
-// import PaymentsServiceProtected from '@/api/payments-service-protected';
-// import S3Api from '@/api/s3';
+import MainApi from '@/api/main';
+import MainProtected from '@/api/main-protected';
+import S3Api from '@/api/s3';
 
 const rootReducer = combineReducers({
   languageReducer,
@@ -21,22 +16,14 @@ const rootReducer = combineReducers({
 
 const composeEnhancers = typeof window === 'undefined' ? compose : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__!;
 
-// const mainApi = new MainApi();
-// const mainProtectedApi = new MainProtected();
-// const mainCustomApi = new MainCustomApi();
-// const analyticsProtectedApi = new AnalyticsProtected();
-// const accountsServiceProtectedApi = new AccountsServiceProtected();
-// const paymentsServiceProtectedApi = new PaymentsServiceProtected();
-// const s3Api = new S3Api();
+const mainApi = new MainApi();
+const mainProtectedApi = new MainProtected();
+const s3Api = new S3Api();
 
 export const getApiArguments = () => ({
-  // mainApi,
-  // mainProtectedApi,
-  // mainCustomApi,
-  // analyticsProtectedApi,
-  // accountsServiceProtectedApi,
-  // paymentsServiceProtectedApi,
-  // s3Api,
+  mainApi,
+  mainProtectedApi,
+  s3Api,
 });
 
 const enhancer = composeEnhancers(
