@@ -1,16 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import useLanguage from '@/components/hooks/useLanguage';
+import styles from '@/styles/components/common/header.module.scss';
 
-const Header: React.FC = () => {
-  const [{ commonLn }] = useLanguage();
-
-  return (<HeaderStyled>{commonLn.home}</HeaderStyled>);
-};
-
-const HeaderStyled = styled.h1`
-  color: red;
-`;
+const Header: React.FC = () => (
+  <header className={styles.header} />
+);
 
 export default Header;

@@ -1,0 +1,55 @@
+$breakpoints: (
+  "xs": 366px,
+  "sm" : 576px,
+  "md" : 768px,
+  "lg" : 992px,
+  "xl" : 1200px,
+  "xxl" : 1400px,
+  "xxxl" : 1700px,
+);
+
+$dir: left;
+
+$dir-negative: right;
+
+// Css Vars
+:root {
+  --math: 1;
+  
+  //Colors Start
+  --white-color: white;
+  --black-color: black;
+  --blue-black-color: #0C2B48;
+  --dark-blue-color: #12395D;
+  --blue-color: #2A577E;
+  --big-tab-blue-color: #0460A9;
+  --light-blue-color: #72C9DD;
+  --pale-blue-color: #F1FDFF;
+  --dark-yellow-color: #F9B133;
+  --yellow-color: #FAC515;
+  --background-color: #ECECEC;
+
+  // Colors End
+
+  --header-height: 72px;
+  --small-column-dekstop-width: 302px;
+  --header-offset: 30px;
+
+  .admin-bar {
+    --header-offset: 32px;
+  }
+
+  .cbn {
+    --blue-shaddow: 0px 6px 20px 0px #0460A92E;
+    --reg-shaddow: 2px 4px 5px 0px #00000033;
+  }
+}
+
+html[dir="rtl"] {
+  --math: -1;
+}
+
+//Color Classes
+.highlight {
+  color: var(--white-color-3);
+}

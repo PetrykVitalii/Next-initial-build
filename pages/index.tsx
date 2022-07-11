@@ -3,15 +3,12 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 
-import Header from '@/components/common/Header';
-
 import MainApi from '@/api/main';
 
 import { IFilm } from '@/store/reducers/films';
 import { filmsActions, getFilms } from '@/store/actions/films';
 import { RequestState } from '@/store/reducers/common';
 import { selectAllFilms, selectFilmsState } from '@/store/selectors/films';
-import Loader from '@/components/common/Loader';
 
 interface Props {
   initialFilms: IFilm[] | null;
@@ -43,10 +40,7 @@ const Home: NextPage<Props> = ({ initialFilms }) => {
   }, [selectedFilms]);
 
   return (
-    <>
-      <Header />
-      {filmsState === RequestState.LOADING && <Loader />}
-    </>
+    <div>Main</div>
   );
 };
 

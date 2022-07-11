@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default (value: any) => {
-  const ref = React.useRef<any>();
+export default (value: Element) => {
+  const ref = React.useRef<Element>();
 
   React.useEffect(() => {
     ref.current = value;

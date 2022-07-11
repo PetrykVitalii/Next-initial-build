@@ -1,0 +1,11 @@
+.right-layout {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+  width: 30.2rem;
+}
+
+.left-layout {
+  background-color: var(--white-color);
+  flex: 1;
+}

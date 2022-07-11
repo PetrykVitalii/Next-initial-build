@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 export type Event = React.SyntheticEvent;
 export type Callback = () => void;
-export type Ref = any;
+export type Ref = Element;
 
 export default (callback: Callback) => {
   const containerRef = React.useRef<Ref>(null);
