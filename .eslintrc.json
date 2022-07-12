@@ -12,7 +12,9 @@
 			"variables": false
 		}],
 		"linebreak-style": "off",
+		"no-case-declarations": "off",
 		"import/extensions": "off",
+		"import/prefer-default-export": "off",
 		"react/prop-types": "off",
 		"react/no-array-index-key": "off",
 		"react/jsx-props-no-spreading": "off",

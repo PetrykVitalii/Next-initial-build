@@ -1,17 +1,16 @@
 .block-wrapper {
   display: flex;
   flex-direction: column;
-  row-gap: 0.8rem;
+  row-gap: 8px;
 }
 
 .items-wrapper {
   display: flex;
   flex-direction: column;
-  row-gap: 0.2rem;
+  row-gap: 2px;
 }
 
 .title {
-  font-family: 'Lato';
   font-weight: 700;
   font-size: 2.8rem;
   color: var(--blue-color);

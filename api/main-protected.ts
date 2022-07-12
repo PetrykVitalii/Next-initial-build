@@ -5,8 +5,4 @@ export default class MainProtected extends HttpClientProtected {
   public constructor() {
     super(process.env.API_URL);
   }
-
-  public test(): any {
-    return this.instance.put<any>('path');
-  }
 }

@@ -1,0 +1,70 @@
+.bonus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white-color);
+  border-radius: 0px 6px 6px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.img {
+  min-width: 80px;
+  width: 80px;
+  min-height: 60px;
+  height: 100%;
+  z-index: 2;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  padding: 0 12px;
+  position: relative;
+  flex: 1;
+}
+
+.info {
+  color: var(--blue-black-color);
+  flex: 1;
+  text-align: right;
+
+  .up-to {
+    font-size: 1.4rem;
+    line-height: 80%;
+  }
+
+  .free-spins {
+    font-weight: 600;
+    line-height: 19px;
+    font-size: 1.6rem;
+  }
+
+  .price {
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 90%;
+  }
+}
+
+.exclusive {
+  position: absolute;
+  padding: 4px 20px;
+  background: var(--yellow-yellow-gradient);
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(-45deg);
+  top: 4px;
+  left: -25px;
+
+  text-transform: uppercase;
+  color: var(--black-color);
+  font-size: 1rem;
+  font-weight: 700;
+}

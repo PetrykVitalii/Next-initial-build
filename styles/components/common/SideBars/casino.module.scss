@@ -1,0 +1,63 @@
+.casino {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  background-color: var(--white-color);
+  border-radius: 0px 6px 6px 0px;
+}
+
+.img {
+  min-width: 80px;
+  width: 80px;
+  min-height: 60px;
+  height: 100%;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--dark-blue-color);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.rating, .payout {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+}
+
+.block-count {
+  font-weight: 700;
+  font-size: 2.1rem;
+  line-height: 75%;
+  color: var(--dark-blue-color);
+}
+
+.block-text {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 120%;
+  color: var(--blue-color);
+}

@@ -1,25 +1,30 @@
 import type { NextPage } from 'next';
-
-import MainApi from '@/api/main';
+import { useSelector } from 'react-redux';
 
 import Container from '@/components/common/Container';
+import SideBars, { SideBarsType } from '@/components/common/SideBars/SideBars';
+
+import { selectAllBonuses } from '@/store/selectors/bonuses';
+import { selectAllSlotGames } from '@/store/selectors/slotGames';
+import { selectaAllCasinos } from '@/store/selectors/casinos';
 
 import styles from '@/styles/pages/faq.module.scss';
-import SideBars, { SideBarsType } from '@/components/common/SideBars';
 
 interface Props {}
 
 const Faq: NextPage<Props> = () => {
-  console.log('a');
+  const bonuses = useSelector(selectAllBonuses);
+  const slotGames = useSelector(selectAllSlotGames);
+  const casinos = useSelector(selectaAllCasinos);
 
   return (
     <Container
       leftLayout={<div className={styles['left-layout']}>leftLayout</div>}
       rightLayout={(
         <div className={styles['right-layout']}>
-          <SideBars type={SideBarsType.TopCasinos} title="Top Casinos" items={new Array(7).fill('Top Casinos')} />
-          <SideBars type={SideBarsType.TopBonuses} title="Top Bonuses" items={new Array(7).fill('Top Bonuses')} />
-          <SideBars type={SideBarsType.TopSlotGames} title="Top Slot Games" items={new Array(7).fill('Top Slot Games')} />
+          <SideBars type={SideBarsType.TopCasinos} title="Top Casinos" items={casinos} />
+          <SideBars type={SideBarsType.TopBonuses} title="Top Bonuses" items={bonuses} />
+          <SideBars type={SideBarsType.TopSlotGames} title="Top Slot Games" items={slotGames} />
         </div>
       )}
     />
@@ -27,10 +32,7 @@ const Faq: NextPage<Props> = () => {
 };
 
 export async function getServerSideProps() {
-  const mainApi = new MainApi();
-  const initialFilms = await mainApi.getFilms();
-
-  return { props: { initialFilms } };
+  return { props: { initial: [] } };
 }
 
 export default Faq;

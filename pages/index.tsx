@@ -1,43 +1,29 @@
 import type { NextPage } from 'next';
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AnyAction } from 'redux';
 
-import MainApi from '@/api/main';
+interface Props {}
 
-import { IFilm } from '@/store/reducers/films';
-import { filmsActions, getFilms } from '@/store/actions/films';
-import { RequestState } from '@/store/reducers/common';
-import { selectAllFilms, selectFilmsState } from '@/store/selectors/films';
+const Home: NextPage<Props> = () => {
+  console.log('a');
 
-interface Props {
-  initialFilms: IFilm[] | null;
-}
+  // const [films, setFilms] = useState<IFilm[]>([]);
 
-const Home: NextPage<Props> = ({ initialFilms }) => {
-  const dispatch = useDispatch();
-  const selectedFilms = useSelector(selectAllFilms);
-  const filmsState = useSelector(selectFilmsState);
+  // useEffect(() => {
+  //   if (filmsState === RequestState.LOADED) {
+  //     return;
+  //   }
 
-  const [films, setFilms] = useState<IFilm[]>([]);
+  //   if (initialFilms) {
+  //     dispatch(filmsActions.setFilmsState(RequestState.LOADED));
+  //     dispatch(filmsActions.setFilms(initialFilms));
+  //     return;
+  //   }
 
-  useEffect(() => {
-    if (filmsState === RequestState.LOADED) {
-      return;
-    }
+  //   dispatch(getFilms() as unknown as AnyAction);
+  // }, [initialFilms]);
 
-    if (initialFilms) {
-      dispatch(filmsActions.setFilmsState(RequestState.LOADED));
-      dispatch(filmsActions.setFilms(initialFilms));
-      return;
-    }
-
-    dispatch(getFilms() as unknown as AnyAction);
-  }, [initialFilms]);
-
-  useEffect(() => {
-    setFilms(selectedFilms);
-  }, [selectedFilms]);
+  // useEffect(() => {
+  //   setFilms(selectedFilms);
+  // }, [selectedFilms]);
 
   return (
     <div>Main</div>
@@ -45,10 +31,7 @@ const Home: NextPage<Props> = ({ initialFilms }) => {
 };
 
 export async function getServerSideProps() {
-  const mainApi = new MainApi();
-  const initialFilms = await mainApi.getFilms();
-
-  return { props: { initialFilms } };
+  return { props: { initialFilms: [] } };
 }
 
 export default Home;

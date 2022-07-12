@@ -1,11 +1,5 @@
 export enum LANGUAGES {
   EN = 'EN',
-  SG = 'SG',
-  ID = 'ID',
-  TH = 'TH',
-  ZH = 'ZH',
-  PH = 'PH',
-  VN = 'VN',
 }
 
 export interface LanguageState {
