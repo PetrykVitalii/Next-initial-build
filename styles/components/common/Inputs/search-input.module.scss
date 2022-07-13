@@ -1,0 +1,31 @@
+.search-input {
+  border: none;
+  outline: none;
+  flex: 1;
+
+  font-size: 1.4rem;
+  line-height: 17px;
+  color: var(--big-tab-blue-color);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  padding: 8px;
+  border: 1px solid var(--big-tab-blue-color);
+  border-radius: 6px;
+
+  ::placeholder {
+    font-size: 1.4rem;
+    line-height: 17px;
+    color: var(--big-tab-blue-color);
+  }
+}
+
+.icon-wrap {
+  min-width: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

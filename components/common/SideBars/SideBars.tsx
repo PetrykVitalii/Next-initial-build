@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Casino from '@/components/common/SideBars/Casino';
-import Bonus from '@/components/common/SideBars/Bonus';
-import SlotGame from '@/components/common/SideBars/SlotGame';
+import CasinoCard from '@/components/common/SideBars/CasinoCard';
+import BonusCard from '@/components/common/SideBars/BonusCard';
+import SlotGameCard from '@/components/common/SideBars/SlotGameCard';
 
 import { ICasino } from '@/interfaces/casino';
 import { IBonus } from '@/interfaces/bonus';
@@ -32,7 +32,7 @@ const SideBars: React.FC<Props> = ({ title, type, items = [] }) => (
             const casino = { ...item } as ICasino;
 
             return (
-              <Casino
+              <CasinoCard
                 key={casino.id}
                 userRating={casino.userRating}
                 payount={casino.payount}
@@ -44,7 +44,7 @@ const SideBars: React.FC<Props> = ({ title, type, items = [] }) => (
             const bonus = { ...item } as IBonus;
 
             return (
-              <Bonus
+              <BonusCard
                 key={bonus.id}
                 currency={bonus.currency}
                 profit={bonus.profit}
@@ -58,7 +58,7 @@ const SideBars: React.FC<Props> = ({ title, type, items = [] }) => (
             const slotGame = { ...item } as ISlotGame;
 
             return (
-              <SlotGame
+              <SlotGameCard
                 key={slotGame.id}
                 userRating={slotGame.userRating}
                 payount={slotGame.payount}

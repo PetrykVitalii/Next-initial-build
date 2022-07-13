@@ -14,11 +14,11 @@ interface Props {
   name: string;
 }
 
-const SlotGame: React.FC<Props> = ({
-  name = 'The Hive',
-  userRating = 9.8,
-  payount = 95,
-  img = 'https://img.bfmtv.com/c/630/420/871/7b9f41477da5f240b24bd67216dd7.jpg',
+const SlotGameCard: React.FC<Props> = ({
+  name,
+  userRating,
+  payount,
+  img,
 }) => {
   const [{ faqLn }] = useLanguage();
 
@@ -59,4 +59,4 @@ const SlotGame: React.FC<Props> = ({
   );
 };
 
-export default SlotGame;
+export default SlotGameCard;

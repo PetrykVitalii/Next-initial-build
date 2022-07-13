@@ -1,9 +1,10 @@
 import React from 'react';
 
+import ThreeDotsMenuIcon from '@/components/icons/ThreeDotsMenuIcon';
+
 import useLanguage from '@/components/hooks/useLanguage';
 
 import styles from '@/styles/components/common/SideBars/bonus.module.scss';
-import ThreeDotsMenuIcon from '@/components/icons/ThreeDotsMenuIcon';
 
 interface Props {
   img: string;
@@ -14,13 +15,13 @@ interface Props {
   isExclusive: boolean;
 }
 
-const Bonus: React.FC<Props> = ({
-  profit = 400,
-  currency = '$',
-  price = 4000,
-  freeSpins = 100,
-  isExclusive = true,
-  img = 'https://st2.depositphotos.com/1560768/6162/i/600/depositphotos_61621057-stock-photo-no-image-available.jpg',
+const BonusCard: React.FC<Props> = ({
+  profit,
+  currency,
+  price,
+  freeSpins,
+  isExclusive,
+  img,
 }) => {
   const [{ faqLn }] = useLanguage();
 
@@ -46,4 +47,4 @@ const Bonus: React.FC<Props> = ({
   );
 };
 
-export default Bonus;
+export default BonusCard;

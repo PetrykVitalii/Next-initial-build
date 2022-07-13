@@ -14,11 +14,11 @@ interface Props {
   name: string;
 }
 
-const Casino: React.FC<Props> = ({
-  name = 'HELL SPIN casino',
-  userRating = 9.5,
-  payount = '95%',
-  img = 'https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png',
+const CasinoCard: React.FC<Props> = ({
+  name,
+  userRating,
+  payount,
+  img,
 }) => {
   const [{ faqLn }] = useLanguage();
 
@@ -56,4 +56,4 @@ const Casino: React.FC<Props> = ({
   );
 };
 
-export default Casino;
+export default CasinoCard;
