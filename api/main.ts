@@ -13,8 +13,58 @@ export default class MainApi extends HttpClient {
     super(process.env.API_URL);
   }
 
-  public getFaqs() {
-    return this.instance.get<IFaq[]>('/faqs');
+  public getFaqs(s: string = '') {
+    // return this.instance.get<IFaq[]>('/faqs?s='search');
+
+    const fakeData: IFaq[] = [
+      {
+        title: 'title',
+        text: 'text',
+        id: '1',
+      },
+      {
+        title: 'What are lorem ipsum dolor sit amet lorem ipsum?',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque nulla a porta malesuada. Vivamus ultricies sed justo ac vehicula. Ut dapibus sit amet nibh ac malesuada. Nam sagittis eget risus eu commodo. Nam nec tempor magna. Vivamus porta rutrum augue et molestie. Curabitur eget ullamcorper sem, rutrum imperdiet enim. Morbi bibendum mauris non venenatis vulputate. Suspendisse condimentum quam eget orci tristique, ac aliquet nibh malesuada.',
+        id: '2',
+      },
+      {
+        title: 'What are lorem ipsum',
+        text: 'Condimentum quam eget orci tristique, ac aliquet nibh malesuada.',
+        id: '3',
+      },
+      {
+        title: 'Ipsum dolor sit amet lorem ipsum',
+        text: 'Ipsum dolor sit amet lorem ipsum ipsum dolor sit amet lorem ipsum ipsum dolor sit amet lorem ipsum',
+        id: '4',
+      },
+      {
+        title: 'Title',
+        text: 'Ttext text text text text text text text text text Ttext text text text text text text text text text Ttext text text text text text text text text text Ttext text text text text text text text text text Ttext text text text text text text text text text',
+        id: '5',
+      },
+      {
+        title: 'What are lorem ipsum',
+        text: 'Condimentum quam eget orci tristique, ac aliquet nibh malesuada.',
+        id: '6',
+      },
+      {
+        title: 'Ipsum dolor sit amet lorem ipsum',
+        text: 'Ipsum dolor sit amet lorem ipsum ipsum dolor sit amet lorem ipsum ipsum dolor sit amet lorem ipsum',
+        id: '7',
+      },
+      {
+        title: 'Title',
+        text: 'Ttext text text text text text text text text text Ttext text text text text text text text text text Ttext text text text text text text text text text Ttext text text text text text text text text text Ttext text text text text text text text text text',
+        id: '8',
+      },
+      {
+        title: 'What are lorem ipsum dolor sit amet lorem ipsum?',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque nulla a porta malesuada. Vivamus ultricies sed justo ac vehicula. Ut dapibus sit amet nibh ac malesuada. Nam sagittis eget risus eu commodo. Nam nec tempor magna. Vivamus porta rutrum augue et molestie. Curabitur eget ullamcorper sem, rutrum imperdiet enim. Morbi bibendum mauris non venenatis vulputate. Suspendisse condimentum quam eget orci tristique, ac aliquet nibh malesuada.',
+        id: '9',
+      },
+    ].filter(({ title }) => title.toLowerCase().includes(s.toLowerCase()));
+
+    return fakeDelay(fakeData);
   }
 
   public getCasinos() {
@@ -91,7 +141,7 @@ export default class MainApi extends HttpClient {
         currency: '$',
         price: 4000,
         freeSpins: 100,
-        isExclusive: true,
+        isExclusive: false,
         id: '12',
         img: 'https://st2.depositphotos.com/1560768/6162/i/600/depositphotos_61621057-stock-photo-no-image-available.jpg',
       },
@@ -127,7 +177,7 @@ export default class MainApi extends HttpClient {
         currency: '$',
         price: 4000,
         freeSpins: 100,
-        isExclusive: true,
+        isExclusive: false,
         id: '16',
         img: 'https://st2.depositphotos.com/1560768/6162/i/600/depositphotos_61621057-stock-photo-no-image-available.jpg',
       },

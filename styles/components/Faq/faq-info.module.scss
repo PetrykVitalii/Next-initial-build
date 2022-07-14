@@ -28,7 +28,7 @@
 }
 
 .icon-wrap {
-  min-width: 140px;
+  min-width: 200px;
 }
 
 .wrapper {
@@ -56,9 +56,17 @@
   row-gap: 28px;
 }
 
-.faqs {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 28px;
+.my-masonry-grid {
   column-gap: 42px;
+  display: flex;
+}
+
+.my-masonry-grid_column {
+  > div {
+    margin-bottom: 28px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }

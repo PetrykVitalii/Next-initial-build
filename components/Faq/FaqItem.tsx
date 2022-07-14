@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 
 import FaqIcon from '@/components/icons/FaqIcon';
+import PlusIcon from '@/components/icons/PlusIcon';
+import MinusIcon from '@/components/icons/MinusIcon';
+
+import useToggle from '@/components/hooks/useToggle';
 
 import styles from '@/styles/components/Faq/faq-item.module.scss';
 
@@ -10,7 +14,13 @@ interface Props {
 }
 
 const FaqItem: React.FC<Props> = ({ title, text }) => {
-  console.log('qwe');
+  const [isCollapse, setIsCollapse] = useToggle(true);
+  const [textRef, setTextRef] = useState<HTMLDivElement | null>(null);
+
+  const hasCollapse = useMemo(
+    () => textRef && textRef.scrollHeight > textRef.offsetHeight,
+    [textRef],
+  );
 
   return (
     <div className={styles.wrapper}>
@@ -20,7 +30,12 @@ const FaqItem: React.FC<Props> = ({ title, text }) => {
         </div>
         <div className={styles.title}>{title}</div>
       </div>
-      <div className={styles.text}>{text}</div>
+      <div ref={(ref) => setTextRef(ref)} className={`${styles.text} ${isCollapse && styles['text-collapse']}`}>{text}</div>
+      {hasCollapse && (
+        <div className={styles['icon-position-wrap']} onClick={setIsCollapse}>
+          {isCollapse ? <PlusIcon /> : <MinusIcon />}
+        </div>
+      )}
     </div>
   );
 };

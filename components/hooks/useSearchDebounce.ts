@@ -3,9 +3,9 @@ import { useCallback, useState } from 'react';
 import useDebounce from '@/components/hooks/useDebounce';
 
 export default <T>(
-  value: T, callback: (search: T) => void, startSearchLength = 3, delay = 500,
+  value: T, callback: (search: T) => void, startSearchLength = 1, delay = 500,
 ): [boolean] => {
-  const [previousValue, setPreviousValue] = useState<T | null>(null);
+  const [previousValue, setPreviousValue] = useState<T | string>('');
 
   const formatSearchValue = (search: T) => {
     switch (typeof search) {

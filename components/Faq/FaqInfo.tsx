@@ -1,23 +1,28 @@
 import React from 'react';
+import Masonry from 'react-masonry-css';
 
 import SearchInput from '@/components/common/Inputs/SearchInput';
 
 import FaqItem from '@/components/Faq/FaqItem';
 
-import PayountIcon from '@/components/icons/PayountIcon';
+import FaqTitleIcon from '@/components/icons/FaqTitleIcon';
 
 import useLanguage from '@/components/hooks/useLanguage';
+
+import { IFaq } from '@/interfaces/faq';
 
 import styles from '@/styles/components/Faq/faq-info.module.scss';
 
 interface Props {
   onChange: (value: string) => void;
-  value: string;
+  searchValue: string;
+  faqs: IFaq[];
 }
 
 const FaqInfo: React.FC<Props> = ({
   onChange,
-  value,
+  searchValue,
+  faqs,
 }) => {
   const [{ faqLn }] = useLanguage();
 
@@ -27,7 +32,7 @@ const FaqInfo: React.FC<Props> = ({
         <h2 className={styles.title}>{`${faqLn.faq} h1`}</h2>
         <div className={styles.wrap}>
           <div className={styles['icon-wrap']}>
-            <PayountIcon />
+            <FaqTitleIcon />
           </div>
           <div className={styles.text}>{faqLn.faq_text}</div>
         </div>
@@ -38,25 +43,25 @@ const FaqInfo: React.FC<Props> = ({
           <div className={styles['input-wrap']}>
             <SearchInput
               placeholder={faqLn.search_placeholder}
-              value={value}
+              value={searchValue}
               onChange={onChange}
             />
           </div>
         </div>
-        <div className={styles.faqs}>
-          <FaqItem
-            title="What are lorem ipsum dolor sit amet lorem ipsum?"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque nulla a porta malesuada. Vivamus ultricies sed justo ac vehicula. Ut dapibus sit amet nibh ac malesuada. Nam sagittis eget risus eu commodo. Nam nec tempor magna. Vivamus porta rutrum augue et molestie. Curabitur eget ullamcorper sem, rutrum imperdiet enim. Morbi bibendum mauris non venenatis vulputate. Suspendisse condimentum quam eget orci tristique, ac aliquet nibh malesuada."
-          />
-          <FaqItem
-            title="What are lorem ipsum dolor sit amet lorem ipsum?"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque nulla a porta malesuada. Vivamus ultricies sed justo ac vehicula. Ut dapibus sit amet nibh ac malesuada. Nam sagittis eget risus eu commodo. Nam nec tempor magna. Vivamus porta rutrum augue et molestie. Curabitur eget ullamcorper sem, rutrum imperdiet enim. Morbi bibendum mauris non venenatis vulputate. Suspendisse condimentum quam eget orci tristique, ac aliquet nibh malesuada."
-          />
-          <FaqItem
-            title="What are lorem ipsum dolor sit amet lorem ipsum?"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque nulla a porta malesuada. Vivamus ultricies sed justo ac vehicula. Ut dapibus sit amet nibh ac malesuada. Nam sagittis eget risus eu commodo. Nam nec tempor magna. Vivamus porta rutrum augue et molestie. Curabitur eget ullamcorper sem, rutrum imperdiet enim. Morbi bibendum mauris non venenatis vulputate. Suspendisse condimentum quam eget orci tristique, ac aliquet nibh malesuada."
-          />
-        </div>
+        <Masonry
+          breakpointCols={3}
+          className={styles['my-masonry-grid']}
+          columnClassName={styles['my-masonry-grid_column']}
+        >
+          {faqs.map(({ title, text, id }) => (
+            <FaqItem
+              title={title}
+              text={text}
+              key={id}
+            />
+          ))}
+        </Masonry>
+        <div className={styles.faqs} />
       </div>
     </div>
   );

@@ -109,4 +109,18 @@
   background-color: transparent;
 }
 
+@mixin lineClamp($value) {
+  word-wrap: white-space;
+  word-break: break-word;
+
+  @supports (-webkit-line-clamp: $value) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: $value;
+    -webkit-box-orient: vertical;
+  }
+}
+
 

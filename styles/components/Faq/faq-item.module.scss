@@ -4,6 +4,8 @@
   row-gap: 8px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--big-tab-blue-color);
+  position: relative;
+  min-height: 128px;
 }
 
 .title-wrap {
@@ -26,8 +28,45 @@
   color: var(--big-tab-blue-color);
 }
 
+@mixin lineClamp($value) {
+  word-wrap: white-space;
+  word-break: break-word;
+
+  @supports (-webkit-line-clamp: $value) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: $value;
+    -webkit-box-orient: vertical;
+  }
+}
+
 .text {
   font-size: 1.6rem;
   line-height: 110%;
   color: var(--text-dark-color);
+
+  -moz-transition: height .5s;
+  -ms-transition: height .5s;
+  -o-transition: height .5s;
+  -webkit-transition: height .5s;
+  transition: height .5s;
+
+  &-collapse {
+    height: 70px;
+    @include lineClamp(4);
+  }
+}
+
+.icon-position-wrap {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -9px;
+  right: 18px;
+  cursor: pointer;
 }
