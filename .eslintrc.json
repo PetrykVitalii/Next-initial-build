@@ -25,6 +25,7 @@
 		"react/react-in-jsx-scope": "off",
 		"react/function-component-definition": "off",
 		"react/jsx-no-useless-fragment": "off",
+		"react-hooks/exhaustive-deps": "off",
 		"react/require-default-props": ["error", {
 			"ignoreFunctionalComponents": true
 		}]
