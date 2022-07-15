@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import {
   createStore, applyMiddleware, compose, combineReducers,
 } from 'redux';
@@ -27,7 +28,7 @@ const rootReducer = combineReducers({
   slotGamesReducer,
 });
 
-const composeEnhancers = typeof window === 'undefined' ? compose : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__!;
+const composeEnhancers = compose;
 
 const mainApi = new MainApi();
 const mainProtectedApi = new MainProtected();
