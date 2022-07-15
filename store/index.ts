@@ -28,7 +28,7 @@ const rootReducer = combineReducers({
   slotGamesReducer,
 });
 
-const composeEnhancers = compose;
+const composeEnhancers = (typeof window === 'undefined' || !window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ? compose : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 const mainApi = new MainApi();
 const mainProtectedApi = new MainProtected();
