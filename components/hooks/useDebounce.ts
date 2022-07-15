@@ -16,7 +16,6 @@ function useDebounce<T>(value: T, delay: number = 500): [boolean, T] {
 
     const timer = setTimeout(() => {
       setDebouncedValue(value);
-
       clearInterval(debounce);
     }, delay);
 

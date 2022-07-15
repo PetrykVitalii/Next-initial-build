@@ -30,11 +30,13 @@ const FaqItem: React.FC<Props> = ({ title, text }) => {
         </div>
         <div className={styles.title}>{title}</div>
       </div>
-      <div ref={(ref) => setTextRef(ref)} className={`${styles.text} ${isCollapse && styles['text-collapse']}`}>{text}</div>
+      <div className={`${styles['text-wrap']} ${isCollapse && styles['text-wrap-collapse']}`}>
+        <div ref={(ref) => setTextRef(ref)} className={`${styles.text} ${isCollapse && styles['text-collapse']}`}>{text}</div>
+      </div>
       {hasCollapse && (
-        <div className={styles['icon-position-wrap']} onClick={setIsCollapse}>
-          {isCollapse ? <PlusIcon /> : <MinusIcon />}
-        </div>
+      <div className={styles['icon-position-wrap']} onClick={setIsCollapse}>
+        {isCollapse ? <PlusIcon /> : <MinusIcon />}
+      </div>
       )}
     </div>
   );

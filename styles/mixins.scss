@@ -1,9 +1,3 @@
-@use 'variables' as v;
-
-@function bp($bpName) {
-  @return map-get(v.$breakpoints, $bpName);
-}
-
 @function calc-ratio($height, $width) {
   @return $height / $width * 100%;
 }
