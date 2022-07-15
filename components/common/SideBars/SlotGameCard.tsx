@@ -1,7 +1,16 @@
 import React from 'react';
+import Image from 'next/image';
 
 import UserRatingIcon from '@/components/icons/UserRatingIcon';
 import PayountIcon from '@/components/icons/PayountIcon';
+
+import Image1 from '@/assets/images/card1.png';
+import Image2 from '@/assets/images/card2.png';
+import Image3 from '@/assets/images/card3.png';
+import Image4 from '@/assets/images/card4.png';
+import Image5 from '@/assets/images/card5.png';
+import Image6 from '@/assets/images/card6.png';
+import Image7 from '@/assets/images/card7.png';
 
 import useLanguage from '@/components/hooks/useLanguage';
 
@@ -10,7 +19,7 @@ import styles from '@/styles/components/common/SideBars/slot-game.module.scss';
 interface Props {
   userRating: number;
   payount: number;
-  img: string;
+  img: number;
   name: string;
 }
 
@@ -22,10 +31,12 @@ const SlotGameCard: React.FC<Props> = ({
 }) => {
   const [{ faqLn }] = useLanguage();
 
+  const images = [Image1, Image2, Image3, Image4, Image5, Image6, Image7];
+
   return (
     <div className={styles['slot-games']}>
       <div className={styles.img}>
-        <img src={img} alt="img" />
+        <Image src={images[img]} alt="img" />
       </div>
       <div className={styles.info}>
         <div className={styles.title}>

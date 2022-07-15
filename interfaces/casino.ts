@@ -1,7 +1,7 @@
 export interface ICasino {
   userRating: number;
   payount: string;
-  img: string;
+  img: number;
   name: string;
   id: string;
 }

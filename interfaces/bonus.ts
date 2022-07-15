@@ -1,5 +1,5 @@
 export interface IBonus {
-  img: string;
+  img: number;
   currency: string;
   profit: number;
   price: number;

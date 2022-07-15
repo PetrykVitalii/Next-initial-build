@@ -49,7 +49,11 @@ const FaqInfo: React.FC<Props> = ({
           </div>
         </div>
         <Masonry
-          breakpointCols={3}
+          breakpointCols={{
+            default: 3,
+            1200: 2,
+            800: 1,
+          }}
           className={styles['my-masonry-grid']}
           columnClassName={styles['my-masonry-grid_column']}
         >

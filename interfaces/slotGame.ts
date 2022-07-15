@@ -1,7 +1,7 @@
 export interface ISlotGame {
   userRating: number;
   payount: number;
-  img: string;
+  img: number;
   name: string;
   id: string;
 }
